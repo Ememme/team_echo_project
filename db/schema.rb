@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170811102113) do
+ActiveRecord::Schema.define(version: 20170811132936) do
 
   create_table "denounces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "author_user_id"
+    t.bigint "denounced_user_id"
+    t.bigint "town_id"
+    t.index ["author_user_id"], name: "index_denounces_on_author_user_id"
+    t.index ["denounced_user_id"], name: "index_denounces_on_denounced_user_id"
+    t.index ["town_id"], name: "index_denounces_on_town_id"
+  end
+
+  create_table "towns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,4 +47,7 @@ ActiveRecord::Schema.define(version: 20170811102113) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "denounces", "towns"
+  add_foreign_key "denounces", "users", column: "author_user_id"
+  add_foreign_key "denounces", "users", column: "denounced_user_id"
 end
