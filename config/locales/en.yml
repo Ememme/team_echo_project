@@ -38,3 +38,7 @@ en:
   sign_up: "Sign up"
   log_out: "Log out"
   account: "Account"
+  denounce_email_template: "Dear user you've been denounced for your crimes 
+                            against humanity."
+  email_greeting: "Hi"
+  email_topic: "You've been denounced"

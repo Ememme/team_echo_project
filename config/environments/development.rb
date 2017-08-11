@@ -53,4 +53,27 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  #config.action_mailer.preview_path = 
+
+  Rails.application.configure do
+  config.action_mailer.preview_path ||= defined?(Rails.root) ? "#{Rails.root}/test/mailers/previews" : nil
+  config.autoload_paths += [config.action_mailer.preview_path]
+
+  routes.append do
+    get '/rails/mailers'                   => "rails/mailers#index"
+    get '/rails/mailers/denounce_mailer'   => "rails/mailers#preview"
+  end
+
+  config.action_mailer.delivery_method = :smtp
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :user_name            => Rails.application.secrets.gmail_username,
+  :password             => Rails.application.secrets.gmail_password,
+  :authentication       => "plain",
+  :enable_starttls_auto => true
+  }
+
+end
 end
