@@ -1,0 +1,2 @@
+class DenounceMailer < ApplicationMailer
+end
