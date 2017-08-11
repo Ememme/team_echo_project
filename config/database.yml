@@ -16,7 +16,6 @@ default: &default
   username: root
   password:
 
-
 development:
   <<: *default
   database: team_echo_project_development
