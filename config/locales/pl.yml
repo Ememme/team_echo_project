@@ -29,16 +29,12 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+pl:
   hello: "Hello world"
-  error: "error"
-  about: "about"
-  email: "email"
-  sign_in: "Sign in"
-  sign_up: "Sign up"
-  log_out: "Log out"
-  account: "Account"
-  denounce_email_template: "Dear user you've been denounced for your crimes 
-                            against humanity."
-  email_greeting: "Hi"
-  email_topic: "You've been denounced"
+  error: "błąd"
+  about: "o"
+  email: "adres email"
+  sign_in: "Zaloguj"
+  sign_up: "Zarejestruj"
+  log_out: "Wyloguj"
+  account: "Konto"
