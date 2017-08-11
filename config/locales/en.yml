@@ -34,3 +34,4 @@ en:
   denounce_email_template: "Dear user you've been denounced for your crimes 
                             against humanity."
   email_greeting: "Hi"
+  email_topic: "You've been denounced"
