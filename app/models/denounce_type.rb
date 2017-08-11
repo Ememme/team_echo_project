@@ -1,0 +1,2 @@
+class DenounceType < ApplicationRecord
+end
