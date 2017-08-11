@@ -42,13 +42,12 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'rubocop', require: false
+  gem 'ffaker'
 end
 
 group :test do
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
 end
-
-gem 'ffaker'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
