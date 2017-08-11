@@ -7,11 +7,11 @@
     %ul.nav.navbar-nav.navbar-right
       - unless user_signed_in?
         %li
-          = link_to 'Sign in', new_user_session_path
+          = link_to I18n.t('sign_in'), new_user_session_path
         %li
-          = link_to 'Sign up', new_user_registration_path
+          = link_to I18n.t('sign_up'), new_user_registration_path
       - else
         %li
-          = link_to 'Log out', destroy_user_session_path
+          = link_to I18n.t('log_out'), destroy_user_session_path, method: :delete
         %li
-          = link_to 'Account', edit_user_registration_path
+          = link_to I18n.t('account'), edit_user_registration_path
