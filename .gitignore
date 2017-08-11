@@ -32,3 +32,4 @@ tags
 tmp/**/*
 !tmp/cache/.keep
 *.pyc
+/config/secrets.yml
