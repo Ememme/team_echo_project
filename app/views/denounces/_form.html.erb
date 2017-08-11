@@ -1,0 +1,22 @@
+<%= form_with(model: denounce, local: true) do |form| %>
+  <% if denounce.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(denounce.errors.count, "error") %> prohibited this denounce from being saved:</h2>
+
+      <ul>
+      <% denounce.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content, id: :denounce_content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
