@@ -33,3 +33,4 @@ en:
   hello: "Hello world"
   denounce_email_template: "Dear user you've been denounced for your crimes 
                             against humanity."
+  email_greeting: "Hi"
