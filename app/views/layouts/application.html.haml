@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title Cynk
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = render 'shared/header'
+    .container
+      .col{align: "center"}
+        - if notice
+          %p.alert.alert-info
+            = notice
+        - if alert
+          %p.alert.alert-danger
+            = alert
+
+        = yield

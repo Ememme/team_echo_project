@@ -1,6 +1,6 @@
 <%= form_with(model: denounce, local: true) do |form| %>
   <% if denounce.errors.any? %>
-    <div id="error_explanation">
+    <div class="alert alert-danger">
       <h2><%= pluralize(denounce.errors.count, "error") %> prohibited this denounce from being saved:</h2>
 
       <ul>
