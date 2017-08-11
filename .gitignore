@@ -17,3 +17,18 @@
 /yarn-error.log
 
 .byebug_history
+
+.DS_Store
+*.sw[nop]
+.bundle
+.byebug_history
+.env
+db/*.sqlite3
+log/*.log
+rerun.txt
+tags
+.tags
+!tags/
+tmp/**/*
+!tmp/cache/.keep
+*.pyc
