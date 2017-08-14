@@ -15,6 +15,7 @@ pl:
         last_sign_in_at:
         last_sign_in_ip:
         locked_at:
+        new_password: Nowe hasło
         password: Hasło
         password_confirmation: Potwierdzenie hasła
         remember_created_at:
