@@ -15,7 +15,7 @@ class DenouncesController < ApplicationController
 
   def create
     @denounce = Denounce.new(denounce_params)
-
+    
     if @denounce.save
       redirect_to @denounce, notice: t("denounce_created")
     else
@@ -55,6 +55,7 @@ class DenouncesController < ApplicationController
                                        :author_user_id,
                                        :denounced_user_id,
                                        :mail,
-                                       :town_id )
+                                       :town_id
+                                       :denounce_type_id )
     end
 end
