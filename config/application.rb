@@ -11,6 +11,7 @@ module TeamEchoProject
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+    config.available_locales = :pl
     config.i18n.default_locale = :pl
 
     # Settings in config/environments/* take precedence over those specified here.

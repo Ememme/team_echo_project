@@ -42,3 +42,6 @@ en:
                             against humanity."
   email_greeting: "Hi"
   email_topic: "You've been denounced"
+  denounce_created: "Denounce was successfully created."
+  denounce_updated: "Denounce was successfully updated."
+  denounce_destroyed: "Denounce was successfully destroyed."
