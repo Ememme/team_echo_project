@@ -1,0 +1,13 @@
+.row
+  %aside.col-md-4
+    %section.user_info
+      %h2
+        = @user.name
+      %h4
+        = "@#{@user.nick}"
+      = link_to I18n.t('edit'), edit_user_registration_path, class: "btn btn-info"
+  .col-md-8
+    - if @user.reported_denounces.any?
+      %h3
+        Microposts (#{@user.reported_denounces.count})
+      %ol.reported_denounces= render @reported_denounces
