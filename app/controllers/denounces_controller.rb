@@ -15,6 +15,7 @@ class DenouncesController < ApplicationController
 
   def create
     @denounce = Denounce.new(denounce_params)
+    @denounce.author_user = current_user
     if @denounce.save
       redirect_to denounces_path, notice: t("denounce_created")
     else
@@ -32,11 +33,10 @@ class DenouncesController < ApplicationController
     end
 
     def denounce_params
-      params.require(:denounce).permit(:content, 
-                                       :author_user_id,
+      params.require(:denounce).permit(:content,
                                        :denounced_user_id,
                                        :mail,
-                                       :town_id
+                                       :town_id,
                                        :denounce_type_id )
     end
 end
