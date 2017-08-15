@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Town, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#new" do
+    it "has no denounces" do
+      town = Town.new
+      expect(town).to have(0).denounces
+    end
+  end
 end
