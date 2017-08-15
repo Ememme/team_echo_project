@@ -1,0 +1,9 @@
+- if @user.reported_denounces.any?
+  %h3
+    = "#{@user.reported_denounces.count} #{'denounce'.pluralize(@user.reported_denounces.count)} created"
+  = render @reported_denounces
+  = will_paginate @reported_denounces, param_name: 'rep_page'
+  %h3
+    = "#{@user.received_denounces.count} #{'denounce'.pluralize(@user.received_denounces.count)} received"
+  = render @received_denounces
+  = will_paginate @received_denounces, param_name: 'rec_page'
