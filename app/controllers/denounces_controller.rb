@@ -15,32 +15,13 @@ class DenouncesController < ApplicationController
 
   def create
     @denounce = Denounce.new(denounce_params)
-    
     if @denounce.save
-      redirect_to @denounce, notice: t("denounce_created")
+      redirect_to denounces_path, notice: t("denounce_created")
     else
       @users = User.all
       @towns = Town.all
       @denounce_types = DenounceType.all
       render :new
-    end
-  end
-
-  def update
-    if @denounce.update(denounce_params)
-      redirect_to @denounce, notice: t("denounce_updated")
-    else
-      @users = User.all
-      @towns = Town.all
-      @denounce_types = DenounceType.all
-      render :edit
-    end
-  end
-
-  def destroy
-    @denounce.destroy
-    respond_to do
-      redirect_to denounces_url, notice: t("denounce_destroyed")
     end
   end
 
