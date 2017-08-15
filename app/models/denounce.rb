@@ -6,11 +6,11 @@ class Denounce < ApplicationRecord
 	belongs_to :denounce_type
   default_scope -> { order(created_at: :desc) }
 
-	def show_author
+	def show_author #chyba powinno być w decoratorze
 		if self.denounce_type_id == 3
 			self.author_user.name
 		elsif self.denounce_type_id == 2
-			'@' + self.author_user.nick
+			"@#{self.author_user.nick}"
 		else
 			'@anonim'
 		end
