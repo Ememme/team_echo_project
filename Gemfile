@@ -34,6 +34,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem 'select2-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -60,6 +63,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

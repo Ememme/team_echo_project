@@ -10,16 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170811132936) do
+ActiveRecord::Schema.define(version: 20170812113315) do
+
+  create_table "denounce_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "denounces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "content"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "author_user_id"
     t.bigint "denounced_user_id"
     t.bigint "town_id"
+    t.bigint "denounce_type_id"
     t.index ["author_user_id"], name: "index_denounces_on_author_user_id"
+    t.index ["denounce_type_id"], name: "index_denounces_on_denounce_type_id"
     t.index ["denounced_user_id"], name: "index_denounces_on_denounced_user_id"
     t.index ["town_id"], name: "index_denounces_on_town_id"
   end
@@ -43,10 +52,13 @@ ActiveRecord::Schema.define(version: 20170811132936) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "nick"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "denounces", "denounce_types"
   add_foreign_key "denounces", "towns"
   add_foreign_key "denounces", "users", column: "author_user_id"
   add_foreign_key "denounces", "users", column: "denounced_user_id"

@@ -1,6 +1,12 @@
-.container
-  .row
-    .col-sm-8
-      = t('about')
-    .col-sm-4
-      .login
+- unless user_signed_in?
+  .container
+    .row
+      .col-sm-8
+        = t('about')
+      .col-sm-4
+        .login
+- else
+  .container
+    %ol.microposts
+      = render @denounces
+    = will_paginate @denounces

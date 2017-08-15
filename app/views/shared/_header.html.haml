@@ -14,4 +14,6 @@
         %li
           = link_to I18n.t('log_out'), destroy_user_session_path, method: :delete
         %li
-          = link_to I18n.t('account'), edit_user_registration_path
+          = link_to current_user.email, current_user
+        %li
+          = link_to I18n.t('my_denounces'), denounces_path         
