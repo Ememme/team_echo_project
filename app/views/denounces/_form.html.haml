@@ -1,0 +1,24 @@
+= form_with(model: @denounce, local: true) do |form|
+  - if @denounce.errors.any?
+    .alert.alert-danger
+      %h2
+        = pluralize(denounce.errors.count, "error")
+        prohibited this denounce from being saved:
+      %ul
+        - denounce.errors.full_messages.each do |message|
+          %li= message
+  .field
+    %p
+      = form.label :denounced_user
+      = form.collection_select :denounced_user_id, @users, :id, :email
+    %p
+      = form.label :town
+      = form.collection_select :town_id, @towns, :id, :name
+    %p
+      = form.label :content
+      = form.text_field :content, id: :denounce_content
+    %p
+      = form.label :denounce_type
+      = form.collection_select :denounce_type_id, @denounce_types, :id, :name
+  .actions
+    = form.submit
