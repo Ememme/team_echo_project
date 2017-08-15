@@ -7,10 +7,4 @@
         = "@#{@user.nick}"
       = link_to I18n.t('edit'), edit_user_registration_path, class: "btn btn-info"
   .col-md-8
-    - if @user.reported_denounces.any?
-      %h3
-        Denounces: (#{@user.reported_denounces.count})
-      = render @user.reported_denounces
-      %h3
-        Was denounced: (#{@user.received_denounces.count})
-      = render @user.received_denounces
+    =render 'shared/user_feed'
