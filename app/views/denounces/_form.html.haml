@@ -10,7 +10,9 @@
   .field
     %p
       = form.label :denounced_user
-      = form.collection_select :denounced_user_id, @users, :id, :email
+      =# form.collection_select :denounced_user_id, @users, :id, :email
+      = form.select :denounced_user_id, options_from_collection_for_select(@users, "id", "name"), {}, {id: "select-denounced"}
+
     %p
       = form.label :town
       = form.collection_select :town_id, @towns, :id, :name
@@ -22,3 +24,8 @@
       = form.collection_select :denounce_type_id, @denounce_types, :id, :name
   .actions
     = form.submit
+
+:javascript
+  $(document).ready(function() {
+    $('select#select-denounced').select2();
+  });
