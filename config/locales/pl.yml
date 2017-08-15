@@ -44,5 +44,5 @@ pl:
   errors:
     messages:
       required: musi istnieć
-  
-
+  profile: "Profil"
+  edit: "Edytuj"
