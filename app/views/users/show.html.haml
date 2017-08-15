@@ -9,5 +9,8 @@
   .col-md-8
     - if @user.reported_denounces.any?
       %h3
-        Microposts (#{@user.reported_denounces.count})
-      %ol.reported_denounces= render @reported_denounces
+        Denounces: (#{@user.reported_denounces.count})
+      = render @user.reported_denounces
+      %h3
+        Was denounced: (#{@user.received_denounces.count})
+      = render @user.received_denounces
