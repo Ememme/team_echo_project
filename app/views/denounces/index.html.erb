@@ -14,9 +14,6 @@
     <% @denounces.each do |denounce| %>
       <tr>
         <td><%= denounce.content %></td>
-        <td><%= link_to 'Show', denounce %></td>
-        <td><%= link_to 'Edit', edit_denounce_path(denounce) %></td>
-        <td><%= link_to 'Destroy', denounce, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

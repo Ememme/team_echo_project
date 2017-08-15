@@ -38,5 +38,11 @@ pl:
   sign_up: "Zarejestruj"
   log_out: "Wyloguj"
   account: "Konto"
+  denounce_created: "Cynk został zapisany."
+  denounce_updated: "Cynk został zaktualizowany."
+  denounce_destroyed: "Cynk został usunięty."
+  errors:
+    messages:
+      required: musi istnieć
   profile: "Profil"
   edit: "Edytuj"
