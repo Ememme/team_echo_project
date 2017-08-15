@@ -13,9 +13,9 @@ require 'ffaker'
 	# Town.delete_all
 	Town.create(id: 1, name: "Poznań")
 	# DenounceType.delete_all
-	DenounceType.create(id: 1, value: 10) #anonim
-	DenounceType.create(id: 2, value: 30) #wyświetlony nick
-	DenounceType.create(id: 3, value: 50) #wyświetlone nazwisko
+	DenounceType.create(id: 1, value: 10, name: 'Anonim') #anonim
+	DenounceType.create(id: 2, value: 30, name: 'Pokaż pseudonim') #wyświetlony nick
+	DenounceType.create(id: 3, value: 50, name: 'Pokaż nazwisko') #wyświetlone nazwisko
 
 	100.times do
 		print ','
