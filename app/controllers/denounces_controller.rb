@@ -2,18 +2,12 @@ class DenouncesController < ApplicationController
   before_action :find_town, only: [:create]
 
   def create
-    @denounce = @town.denounces.build(denounce_params)
-    @denounce.author_user = current_user
+    service = Denounces::CreateService.new(denounce_params, current_user, @town)
 
-    if @denounce.save
-      notifier = Slack::Notifier.new "https://hooks.slack.com/services/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" do
-        defaults channel: "#general",
-                 username: "denouncer"
-      end
-      notifier.ping "<!channel> #{current_user.name} denounced: #{@denounce.denounced_user.name} for: #{@denounce.content}"
-
+    if service.call
       redirect_to town_path(params[:town_id]), notice: t("denounce_created")
     else
+      @denounce = service.denounce
       render :new
     end
   end
