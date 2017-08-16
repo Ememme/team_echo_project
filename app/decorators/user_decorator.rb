@@ -8,10 +8,10 @@ class UserDecorator < ApplicationDecorator
   end
 
   def author_slack_name(denounce_id)
-   denounce_type_name = fetch_reported_denounce(denounce_id).denounce_type.name
-   return "Anon" if denounce_type_name == 'Anonim'
-   return "#{object.nick}" if denounce_type_name == 'Pokaż pseudonim'
-   return "#{object.name}" if denounce_type_name == 'Pokaż nazwisko'
+    denounce_type_name = fetch_reported_denounce(denounce_id).denounce_type.name
+    return "Anon" if denounce_type_name == 'Anonim'
+    return object.nick.to_s if denounce_type_name == 'Pokaż pseudonim'
+    return object.name.to_s if denounce_type_name == 'Pokaż nazwisko'
   end
 
   private
