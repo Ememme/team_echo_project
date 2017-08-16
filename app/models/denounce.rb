@@ -5,11 +5,12 @@ class Denounce < ApplicationRecord
 	belongs_to :town
 	belongs_to :denounce_type
 
-  before_create :update_score
+  after_create :update_score
 
   private
 
     def update_score
-      self.points += denounce_type.value
+      author_user.points += denounce_type.value
+      author_user.save
     end
 end
