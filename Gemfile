@@ -31,16 +31,16 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'haml-rails'
 gem 'bootstrap-sass'
-gem 'jquery-rails'
-gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-gem "slack-notifier"
-gem 'select2-rails'
-gem 'draper'
-gem 'simple_form'
 gem 'devise'
+gem 'draper'
+gem 'haml-rails'
+gem 'jquery-rails'
+gem 'select2-rails'
+gem 'simple_form'
+gem "slack-notifier"
+gem 'will_paginate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

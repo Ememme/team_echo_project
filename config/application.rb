@@ -8,7 +8,6 @@ require 'slack-notifier'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-
 module TeamEchoProject
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Denounces::CreateService do
+RSpec.describe Denounces::CreateService do
   describe '#call' do
     let(:author) { create(:user) }
     let(:town) { create(:town) }
@@ -12,7 +12,7 @@ describe Denounces::CreateService do
     context 'when params are valid' do
       let(:params) do
         {
-          denounced_user_id: denounced_user.id, 
+          denounced_user_id: denounced_user.id,
           denounce_type_id: denounce_type.id,
           content: "rspec"
         }
