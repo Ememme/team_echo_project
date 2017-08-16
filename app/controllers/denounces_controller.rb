@@ -3,7 +3,7 @@ class DenouncesController < ApplicationController
 
 
   def index
-    @denounces = Denounce.all
+    @denounces = Denounce.all.decorate
   end
 
   def new
