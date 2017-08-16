@@ -3,7 +3,10 @@ class UserDecorator < ApplicationDecorator
 
   def nick_or_name
     return name unless name.blank?
-    return nick unless nick.blank?
+    nick_or_email
+  end
+  def nick_or_email
+    return "@#{nick}" unless nick.blank?
     return email
   end
 

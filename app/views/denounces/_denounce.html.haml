@@ -1,6 +1,6 @@
 %li{:id => "denounce-#{denounce.id}"}
   %span.content
-    = "#{denounce.show_author} denounces #{denounce.denounced_user.name}"
+    = "#{denounce.show_author} denounces #{denounce.denounced_user.decorate.nick_or_name}"
     %br
     = denounce.content
   %span.timestamp
