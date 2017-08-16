@@ -17,5 +17,3 @@
           = link_to I18n.t('log_out'), destroy_user_session_path, method: :delete
         %li
           = link_to current_user.nick_or_name, current_user
-        %li
-          = link_to I18n.t('my_denounces'), denounces_path

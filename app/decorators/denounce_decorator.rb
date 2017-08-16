@@ -9,5 +9,5 @@ class DenounceDecorator < ApplicationDecorator
 		else
 			'@anonim'
 		end
-	end
+  end
 end

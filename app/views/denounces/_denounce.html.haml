@@ -1,10 +1,7 @@
 %li{:id => "denounce-#{denounce.id}"}
-  -# = link_to gravatar_for(micropost.user, size: 50), micropost.user
-  -# %span.user= link_to micropost.user.name, micropost.user
-  -# %span.author= denounce.show_author
-  %span.content= "#{denounce.show_author} denounces #{denounce.denounced_user.name}<br>#{denounce.content}".html_safe
+  %span.content
+    = "#{denounce.show_author} denounces #{denounce.denounced_user.name}"
+    %br
+    = denounce.content
   %span.timestamp
-    =  "#{denounce.town.name}, #{time_ago_in_words(denounce.created_at)} #{I18n.t('ago')}."
-    -# - if current_user?(denounce.author_user)
-    -#   = link_to "delete", micropost, method: :delete, |
-    -#     data: { confirm: "You sure?" }                |
+    = "#{denounce.town.name}, #{time_ago_in_words(denounce.created_at)} #{I18n.t('ago')}."

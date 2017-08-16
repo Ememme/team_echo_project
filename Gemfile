@@ -39,6 +39,7 @@ gem 'bootstrap-will_paginate'
 gem "slack-notifier"
 gem 'select2-rails'
 gem 'draper'
+gem 'simple_form'
 gem 'devise'
 
 group :development, :test do
