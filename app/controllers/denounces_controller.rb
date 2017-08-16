@@ -1,42 +1,30 @@
 class DenouncesController < ApplicationController
-  before_action :set_denounce, only: [:show, :edit, :update, :destroy]
-
-
-  def index
-    @denounces = Denounce.all.decorate
-  end
+  before_action :find_town, only: [:new, :create]
 
   def new
-    @denounce = Denounce.new
-    @users = User.all
-    @towns = Town.all
-    @denounce_types = DenounceType.all
+    @denounce = @town.denounces.new
   end
 
   def create
-    @denounce = Denounce.new(denounce_params)
+    @denounce = @town.denounces.build(denounce_params)
     @denounce.author_user = current_user
     if @denounce.save
-      redirect_to denounces_path, notice: t("denounce_created")
+      redirect_to town_path(params[:town_id]), notice: t("denounce_created")
     else
-      @users = User.all
-      @towns = Town.all
-      @denounce_types = DenounceType.all
       render :new
     end
   end
 
   private
 
-    def set_denounce
-      @denounce = Denounce.find(params[:id])
+    def find_town
+      @town = Town.find(params[:town_id])
     end
 
     def denounce_params
       params.require(:denounce).permit(:content,
                                        :denounced_user_id,
-                                       :mail,
-                                       :town_id,
-                                       :denounce_type_id )
+                                       :denounce_type_id
+                                      )
     end
 end

@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-md-8
+      %ol.microposts
+        = render @denounces
+      = will_paginate @denounces
+    .col-md-4
+      = render 'denounces/form'
