@@ -16,8 +16,18 @@ class DenouncesController < ApplicationController
   def create
     @denounce = Denounce.new(denounce_params)
     @denounce.author_user = current_user
+
+    notifier = Slack::Notifier.new "https://hooks.slack.com/services/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" do
+      defaults channel: "#general",
+               username: "denouncer"
+    end
     if @denounce.save
       redirect_to denounces_path, notice: t("denounce_created")
+      notifier = Slack::Notifier.new "https://hooks.slack.com/services/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" do
+        defaults channel: "#general",
+                 username: "denouncer"
+      end
+      notifier.ping "<!channel> #{current_user.name} has been denounced by #{@denounce.denounced_user.name}"
     else
       @users = User.all
       @towns = Town.all

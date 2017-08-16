@@ -36,6 +36,7 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem "slack-notifier"
 gem 'select2-rails'
 gem 'draper'
 
