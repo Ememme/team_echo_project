@@ -10,7 +10,7 @@ RSpec.describe Denounce, type: :model do
       email: 'a@a.a',
       password: 'password',
       password_confirmation: 'password')
-    town = Town.create(name: 'a')
+    town = Town.create :town
     type = DenounceType.create(name: 'a', value: 10)
   end
 
