@@ -49,3 +49,5 @@ en:
   denounce_created: "Denounce was successfully created."
   denounce_updated: "Denounce was successfully updated."
   denounce_destroyed: "Denounce was successfully destroyed."
+  denounced: "denounced:"
+  for: "for:"
