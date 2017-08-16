@@ -39,6 +39,7 @@ gem 'bootstrap-will_paginate'
 gem "slack-notifier"
 gem 'select2-rails'
 gem 'draper'
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,7 +51,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'selenium-webdriver'
-  gem 'devise'
 end
 
 group :test do
