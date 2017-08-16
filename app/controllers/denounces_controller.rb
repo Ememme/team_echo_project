@@ -1,5 +1,6 @@
 class DenouncesController < ApplicationController
   before_action :set_denounce, only: [:show, :edit, :update, :destroy]
+  after_action :add_points, only: [:create]
 
 
   def index
@@ -37,6 +38,10 @@ class DenouncesController < ApplicationController
   end
 
   private
+
+    def add_points
+      current_user.update_score(params[:denounce][:denounce_type_id])
+    end
 
     def set_denounce
       @denounce = Denounce.find(params[:id])
