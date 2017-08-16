@@ -27,7 +27,7 @@ class DenouncesController < ApplicationController
         defaults channel: "#general",
                  username: "denouncer"
       end
-      notifier.ping "<!channel> #{current_user.name} has been denounced by #{@denounce.denounced_user.name}"
+      notifier.ping "<!channel> #{current_user.name} denounced: #{@denounce.denounced_user.name}"
     else
       @users = User.all
       @towns = Town.all
