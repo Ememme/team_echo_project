@@ -16,26 +16,26 @@ require 'ffaker'
 	DenounceType.create(id: 1, value: 10, name: 'Anonim') #anonim
 	DenounceType.create(id: 2, value: 30, name: 'Pokaż pseudonim') #wyświetlony nick
 	DenounceType.create(id: 3, value: 50, name: 'Pokaż nazwisko') #wyświetlone nazwisko
-	DenounceType
-	30.times do
-		print ','
-		user = User.create(name: FFaker::NamePL.name,
-			nick: FFaker::BaconIpsum.word,
-			email: FFaker::Internet.email,
-			password: 'password',
-			password_confirmation: 'password'
-		)
-		rand(25).times do
-			print '.'
-			type = rand(3)+1
-			Denounce.create(
-				content: FFaker::BaconIpsum.sentence,
-				author_user_id: user.id,
-				denounced_user_id: rand(user.id)+1,
-				town_id: 1,
-				denounce_type_id: type,
-				created_at: rand(1000).hours.ago
-			)
-			user.update_score(type)
-		end
-	end
+	# DenounceType
+	# 30.times do
+	# 	print ','
+	# 	user = User.create(name: FFaker::NamePL.name,
+	# 		nick: FFaker::BaconIpsum.word,
+	# 		email: FFaker::Internet.email,
+	# 		password: 'password',
+	# 		password_confirmation: 'password'
+	# 	)
+	# 	rand(25).times do
+	# 		print '.'
+	# 		type = rand(3)+1
+	# 		Denounce.create(
+	# 			content: FFaker::BaconIpsum.sentence,
+	# 			author_user_id: user.id,
+	# 			denounced_user_id: rand(user.id)+1,
+	# 			town_id: 1,
+	# 			denounce_type_id: type,
+	# 			created_at: rand(1000).hours.ago
+	# 		)
+	# 		user.update_score(type)
+	# 	end
+	# end
