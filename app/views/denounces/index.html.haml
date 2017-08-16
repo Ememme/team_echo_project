@@ -1,0 +1,12 @@
+%h1 Denounces
+%table
+  %thead
+    %tr
+      %th Content
+      %th{:colspan => "3"}
+  %tbody
+    - @denounces.each do |denounce|
+      %tr
+        %td= denounce.content
+%br/
+= link_to 'New Denounce', new_denounce_path
