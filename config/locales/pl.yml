@@ -38,6 +38,7 @@ pl:
   sign_up: "Zarejestruj"
   log_out: "Wyloguj"
   account: "Konto"
+  ranking: "Ranking"
   denounce_created: "Cynk został zapisany."
   denounce_updated: "Cynk został zaktualizowany."
   denounce_destroyed: "Cynk został usunięty."

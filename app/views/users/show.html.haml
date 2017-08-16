@@ -5,6 +5,9 @@
         = @user.name
       %h4
         = "@#{@user.nick}"
+      %h4
+        = "#{@user.points} #{"point".pluralize}!"
+
       = link_to I18n.t('edit'), edit_user_registration_path, class: "btn btn-info"
   .col-md-8
     =render 'shared/user_feed'

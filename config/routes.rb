@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+  root to: 'home#index'
   devise_for :users
   resources :users, only: [:show]
+  get 'ranking', to: 'users#ranking'
 
   resources :towns, only: [:show] do
     resources :denounces, only: [:create]
