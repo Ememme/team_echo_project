@@ -16,4 +16,4 @@
         %li
           = link_to I18n.t('log_out'), destroy_user_session_path, method: :delete
         %li
-          = link_to current_user.nick_or_name, current_user
+          = link_to current_user.nick_or_name_or_email, current_user

@@ -1,13 +1,10 @@
 class UserDecorator < ApplicationDecorator
   delegate_all
 
-  def nick_or_name
-    return name unless name.blank?
-    nick_or_email
-  end
-  def nick_or_email
-    return "@#{nick}" unless nick.blank?
-    return email
+  def nick_or_name_or_email(options = {})
+    return "@#{nick}" if nick.present?
+    return name if name.present? && options[:skip_name] != true
+    email
   end
 
   def author_slack_name(denounce_id)

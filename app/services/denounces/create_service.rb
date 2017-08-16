@@ -12,18 +12,22 @@ module Denounces
       @denounce.author_user = @author
 
       if @denounce.save
-        notifier = Slack::Notifier.new "https://hooks.slack.com/services/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" do
-          defaults channel: "#general",
-                   username: "denouncer"
-        end
-        notifier.ping("<!channel> #{@author.decorate.author_slack_name(@denounce.id)} #{I18n.t("denounced")} #{@denounce.denounced_user.name} #{I18n.t("for")} #{@denounce.content}")
-
+        ping_slack 
         true
       else
         false
-      end   
+      end
     end
 
+    private
 
+    def ping_slack
+      channel_url = "https://hooks.slack.com/services/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"
+      notifier = Slack::Notifier.new channel_url do
+        defaults channel: "#general",
+                 username: "denouncer"
+      end
+      notifier.ping "<!channel> #{@author.name} denounced: #{@denounce.denounced_user.name} for: #{@denounce.content}"
+    end
   end
 end

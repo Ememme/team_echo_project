@@ -1,5 +1,3 @@
 class DenounceType < ApplicationRecord
-
-	has_many :denounces
-
+  has_many :denounces
 end
