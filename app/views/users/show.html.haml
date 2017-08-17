@@ -2,9 +2,7 @@
   %aside.col-md-4
     %section.user_info
       %h2
-        = @user.name
-      %h4
-        = "@#{@user.nick}"
+        = "#{@user.decorate.nick_or_name_or_email}"
       %h4
         = "#{@user.points} #{"point".pluralize}!"
 
