@@ -21,15 +21,18 @@ module Denounces
 
     private
 
-    def ping_slack
+    def connect_slack
       channel_url = "https://hooks.slack.com/services/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"
-      notifier = Slack::Notifier.new channel_url do
+      Slack::Notifier.new channel_url do
         defaults channel: "#general",
                  username: "denouncer"
       end
+    end
+
+    def ping_slack
       author_slack_name = @author.decorate.author_slack_name(@denounce.id)
       denounced_user_nick = @denounce.denounced_user.nick
-      notifier.ping "<!channel> <@#{author_slack_name}> denounced: <@#{denounced_user_nick}> for: #{@denounce.content}"
+      connect_slack.ping "<!channel> <@#{author_slack_name}> denounced: <@#{denounced_user_nick}> for: #{@denounce.content}"
     end
   end
 end
