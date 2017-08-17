@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :reported_denounces, class_name: "Denounce", foreign_key: "author_user_id", dependent: :nullify
   has_many :received_denounces, class_name: "Denounce", foreign_key: "denounced_user_id", dependent: :nullify
 
-  scope :with_nick_or_name, -> { where.not(nick: nil).or(where.not(name: nil)) }
+  scope :with_nick_or_name, -> { where.not(nick: "").or(where.not(name: "")) }
   scope :without_me, ->(user) { where.not(id: user.id) }
 end

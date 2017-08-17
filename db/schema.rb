@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817103226) do
+ActiveRecord::Schema.define(version: 20170817134003) do
 
   create_table "denounce_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "value"
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20170817103226) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "nick"
+    t.string "name", default: ""
+    t.string "nick", default: ""
     t.integer "points", default: 0
     t.string "confirmation_token"
     t.datetime "confirmed_at"

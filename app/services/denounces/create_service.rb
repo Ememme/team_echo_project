@@ -31,8 +31,8 @@ module Denounces
 
     def ping_slack
       author_slack_name = @author.decorate.author_slack_name(@denounce.id)
-      denounced_user_nick = @denounce.denounced_user.nick
-      connect_slack.ping "<!channel> <@#{author_slack_name}> denounced: <@#{denounced_user_nick}> for: #{@denounce.content}"
+      denounced_user_nick = @denounce.denounced_user.decorate.nick_or_name
+      connect_slack.ping "<!channel> <#{author_slack_name}> denounced: <#{denounced_user_nick}> for: #{@denounce.content}"
     end
   end
 end

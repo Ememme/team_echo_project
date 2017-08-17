@@ -18,8 +18,8 @@ class UserDecorator < ApplicationDecorator
     denounce_type_gid = fetch_reported_denounce(denounce_id).denounce_type.gid
 
     return object.name || I18n.t('anon') if denounce_type_gid == 3
-    return object.nick || I18n.t('anon') if denounce_type_gid == 2
-    I18n.t('anon')
+    return "@#{object.nick}" || I18n.t('anon') if denounce_type_gid == 2
+    I18n.t('slack_anon')
   end
 
   def allowed_denounce_types
