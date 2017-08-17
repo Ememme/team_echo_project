@@ -1,4 +1,6 @@
 class TownsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @town = Town.includes(:denounces).find(params[:id])
     @denounces = @town.denounces

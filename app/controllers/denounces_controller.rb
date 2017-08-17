@@ -1,5 +1,6 @@
 class DenouncesController < ApplicationController
   before_action :find_town, only: [:create]
+  before_action :authenticate_user!
 
   def create
     service = Denounces::CreateService.new(denounce_params, current_user, @town)
