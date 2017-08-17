@@ -9,15 +9,6 @@ describe Denounces::CreateService do
 
     subject { described_class.new(params, author, town).call }
 
-    context 'when params are valid' do
-      let(:params) do
-        {
-          denounced_user_id: denounced_user.id, 
-          denounce_type_id: denounce_type.id,
-          content: "rspec"
-        }
-      end
-
       it 'creates new denounce' do
         expect { subject }.to change { Denounce.count }.by(1)
         expect(Denounce.last.author_user).to eq author
