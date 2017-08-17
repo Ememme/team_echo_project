@@ -1,8 +1,8 @@
 = simple_form_for([@town, @denounce], html: { class: 'form-horizontal' }) do |f|
 
-  = f.association :denounced_user, collection: User.all.decorate, label_method: :nick_or_name_or_email
+  = f.association :denounced_user, collection: User.without_me(current_user).with_nick_or_name.decorate, label_method: :nick_or_name
   = f.input :content
-  = f.association :denounce_type, collection: DenounceType.all
+  = f.association :denounce_type, collection: current_user.allowed_denounce_types, include_blank: false
 
   = f.button :submit
 

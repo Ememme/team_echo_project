@@ -6,7 +6,7 @@ class TownsController < ApplicationController
     @denounces = @town.denounces
                       .order(created_at: :desc)
                       .includes(:author_user, :denounced_user)
-                      .paginate(page: params[:page], per_page: 30)
+                      .paginate(page: params[:page], per_page: 15)
                       .decorate
     @denounce = @town.denounces.build
   end
