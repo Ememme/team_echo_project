@@ -26,8 +26,8 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # Care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -55,24 +55,11 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # config.action_mailer.preview_path =
 
-  Rails.application.configure do
-    config.action_mailer.preview_path ||= defined?(Rails.root) ? "#{Rails.root}/test/mailers/previews" : nil
-    config.autoload_paths += [config.action_mailer.preview_path]
+  config.action_mailer.preview_path ||= defined?(Rails.root) ? "#{Rails.root}/test/mailers/previews" : nil
+  config.autoload_paths += [config.action_mailer.preview_path]
 
-    routes.append do
-      get '/rails/mailers'                   => "rails/mailers#index"
-      get '/rails/mailers/denounce_mailer'   => "rails/mailers#preview"
-    end
-
-    config.action_mailer.delivery_method = :smtp
-    # SMTP settings for gmail
-    config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
-      port: 587,
-      user_name: Rails.application.secrets.gmail_username,
-      password: Rails.application.secrets.gmail_password,
-      authentication: "plain",
-      enable_starttls_auto: true
-    }
+  routes.append do
+    get '/rails/mailers'                   => "rails/mailers#index"
+    get '/rails/mailers/denounce_mailer'   => "rails/mailers#preview"
   end
 end
