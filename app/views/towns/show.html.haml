@@ -1,8 +1,14 @@
 .container
   .row
     .col-md-8
-      %ol.microposts
-        = render @denounces
-      = will_paginate @denounces
+      - if @denounces.empty?
+        = t('no_denounces_in_town')
+      - else
+        %ol.microposts
+          = render @denounces
+        = will_paginate @denounces
     .col-md-4
-      = render 'denounces/form'
+      - if User.without_me(current_user).with_nick_or_name.empty?
+        = t('nobody_to_denounce_yet')
+      - else
+        = render 'denounces/form'

@@ -27,7 +27,9 @@ module Denounces
         defaults channel: "#general",
                  username: "denouncer"
       end
-      notifier.ping "<!channel> <@#{@author.decorate.author_slack_name(@denounce.id)}> denounced: <@#{@denounce.denounced_user.nick}> for: #{@denounce.content}"
+      author_slack_name = @author.decorate.author_slack_name(@denounce.id)
+      denounced_user_nick = @denounce.denounced_user.nick
+      notifier.ping "<!channel> <@#{author_slack_name}> denounced: <@#{denounced_user_nick}> for: #{@denounce.content}"
     end
   end
 end
