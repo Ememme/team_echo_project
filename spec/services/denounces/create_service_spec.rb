@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Denounces::CreateService do
+RSpec.describe Denounces::CreateService do
   describe '#call' do
     let(:author) { create(:user) }
     let(:town) { create(:town) }
@@ -8,7 +8,6 @@ describe Denounces::CreateService do
     let(:denounce_type) { create(:denounce_type) }
 
     subject { described_class.new(params, author, town).call }
-
       it 'creates new denounce' do
         expect { subject }.to change { Denounce.count }.by(1)
         expect(Denounce.last.author_user).to eq author

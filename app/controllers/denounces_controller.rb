@@ -14,15 +14,13 @@ class DenouncesController < ApplicationController
 
   private
 
-    def find_town
-      @town = Town.find(params[:town_id])
+  def find_town
+    @town = Town.find(params[:town_id])
+  end
 
-    end
-
-    def denounce_params
-      params.require(:denounce).permit(:content,
-                                       :denounced_user_id,
-                                       :denounce_type_id
-                                      )
-    end
+  def denounce_params
+    params.require(:denounce).permit(:content,
+                                     :denounced_user_id,
+                                     :denounce_type_id)
+  end
 end

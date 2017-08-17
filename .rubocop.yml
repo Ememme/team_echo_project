@@ -2,6 +2,9 @@ AllCops:
   Exclude:
     - 'vendor/**/*'
     - 'db/**/*'
+    - 'config/initializers/**/*'
+    - 'config/environments/**/*'
+    - 'spec/**/*'
 
 Metrics/LineLength:
   Max: 120
