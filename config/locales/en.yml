@@ -51,3 +51,11 @@ en:
   denounce_destroyed: "Denounce was successfully destroyed."
   denounced: "denounced:"
   for: "for:"
+  no_denounces_in_town: Nobody denounced anyone in this town yet. Luckers...
+  nobody_to_denounce_yet: "You're alone in this app. Nobody to denounce. Sad :("
+  full_name: "Full Name"
+  denounce_types:
+    gid_1: Anon
+    gid_2: Nick
+    gid_3: Name
+  anon: '@anonim'
