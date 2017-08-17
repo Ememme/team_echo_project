@@ -12,7 +12,7 @@ module Denounces
       @denounce.author_user = @author
 
       if @denounce.save
-        ping_slack
+        ping_slack unless Rails.env.test?
         true
       else
         false
