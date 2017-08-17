@@ -9,7 +9,15 @@ class DenouncesController < ApplicationController
       redirect_to town_path(params[:town_id]), notice: t("denounce_created")
     else
       @denounce = service.denounce
-      render :new
+
+      @town = Town.includes(:denounces).find(params[:town_id])
+      @denounces = @town.denounces
+                        .order(created_at: :desc)
+                        .includes(:author_user, :denounced_user)
+                        .paginate(page: params[:page], per_page: 30)
+                        .decorate
+      render "towns/show"
+
     end
   end
 

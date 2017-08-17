@@ -1,4 +1,8 @@
 class Denounce < ApplicationRecord
+  validates :content, presence: true, length: { maximum: 150 }
+  validates :denounce_type, presence: true
+  validates :denounced_user, presence: true
+
   belongs_to :author_user, class_name: "User"
   belongs_to :denounced_user, class_name: "User"
   belongs_to :town
