@@ -19,7 +19,7 @@ class UserDecorator < ApplicationDecorator
 
     return object.name || I18n.t('anon') if denounce_type_gid == 3
     return "@#{object.nick}" || I18n.t('anon') if denounce_type_gid == 2
-    I18n.t('slack_anon')
+    I18n.t('anon')
   end
 
   def allowed_denounce_types
